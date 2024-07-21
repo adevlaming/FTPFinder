@@ -3,24 +3,30 @@
 import React, { useState, useEffect } from 'react';
 
 async function fetchGames(category) {
-  let url = 'https://www.freetogame.com/api/games';
-  const params = [];
-
+  const apiKey = '9ff765ef16msh514a67d244a1e0ep179ef9jsn0c205c546ea7'; // Replace with your RapidAPI key
+  const apiHost = 'free-to-play-games-database.p.rapidapi.com';
+  
+  let url = `https://${apiHost}/api/games`;
   if (category) {
-    params.push(`category=${category}`);
+    url += `?category=${category}`;
   }
 
-  if (params.length > 0) {
-    url += `?${params.join('&')}`;
-  }
+  console.log('Fetching games from URL:', url); // Debugging log
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Host': apiHost,
+        'X-RapidAPI-Key': apiKey
+      }
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
-    return data.games || [];
+    console.log('Fetched data:', data); // Debugging log
+    return data;
   } catch (error) {
     console.error('Error fetching games:', error);
     return [];
@@ -36,9 +42,7 @@ export default function GameList({ category }) {
   };
 
   useEffect(() => {
-    if (category) {
-      loadGames();
-    }
+    loadGames();
   }, [category]);
 
   return (

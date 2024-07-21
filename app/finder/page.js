@@ -3,8 +3,15 @@
 import React, { useState } from 'react';
 import GameList from './game-list';
 
+
 export default function Page() {
   const [category, setCategory] = useState('');
+
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    console.log('Selected category:', selectedCategory); // Debugging log
+    setCategory(selectedCategory);
+  };
 
   return (
     <main className="bg-black text-white min-h-screen flex flex-col items-center">
@@ -15,7 +22,7 @@ export default function Page() {
           <select
             className="p-2 w-full bg-gray-800 text-white border border-gray-700 rounded"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={handleCategoryChange}
           >
             <option value="">Select Category</option>
             <option value="shooter">Shooter</option>
