@@ -56,6 +56,7 @@ export default function GameList({ category }) {
               <div>
                 <p className="font-bold">{game.title}</p>
                 <p>{game.short_description}</p>
+                <p>Platform: {game.platform}</p>
               </div>
             </li>
           ))
