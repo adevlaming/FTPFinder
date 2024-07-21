@@ -43,7 +43,7 @@ export default function GameList({ category }) {
 
   useEffect(() => {
     loadGames();
-  }, [category]);
+  }, [category, loadGames]);
 
   return (
     <div className="mx-10 my-5">
