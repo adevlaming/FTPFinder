@@ -51,9 +51,12 @@ export default function GameList({ category }) {
       <ul className="space-y-4">
         {games.length > 0 ? (
           games.map((game) => (
-            <li key={game.id} className="p-2 border border-gray-700 rounded bg-gray-800 text-orange-200">
-              <img src={game.thumbnail} alt={game.title} className="w-16 h-16 inline-block mr-4" />
-              {game.title}
+            <li key={game.id} className="p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex items-center">
+              <img src={game.thumbnail} alt={game.title} className="w-20 h-20 inline-block mr-4" />
+              <div>
+                <p className="font-bold">{game.title}</p>
+                <p>{game.short_description}</p>
+              </div>
             </li>
           ))
         ) : (
