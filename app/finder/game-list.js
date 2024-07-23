@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 async function fetchGames(category) {
-  const apiKey = '9ff765ef16msh514a67d244a1e0ep179ef9jsn0c205c546ea7'; // Replace with your RapidAPI key
+  const apiKey = '9ff765ef16msh514a67d244a1e0ep179ef9jsn0c205c546ea7';
   const apiHost = 'free-to-play-games-database.p.rapidapi.com';
   
   let url = `https://${apiHost}/api/games`;
@@ -46,13 +46,13 @@ export default function GameList({ category }) {
   }, [category, loadGames]);
 
   return (
-    <div className="mx-10 my-5">
+    <div className="mx-10 my-5 w-full max-w-6xl">
       <h2 className="text-2xl text-orange-300 mb-4">Game List for {category}</h2>
-      <ul className="space-y-4">
+      <ul className="grid grid-cols-4 gap-5">
         {games.length > 0 ? (
           games.map((game) => (
-            <li key={game.id} className="p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex items-center">
-              <img src={game.thumbnail} alt={game.title} className="w-20 h-20 inline-block mr-4" />
+            <li key={game.id} className="p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex flex-col items-center">
+              <img src={game.thumbnail} alt={game.title} className="w-full h-auto" />
               <div>
                 <p className="font-bold">{game.title}</p>
                 <p>{game.short_description}</p>
@@ -67,3 +67,6 @@ export default function GameList({ category }) {
     </div>
   );
 }
+
+//<img src={game.thumbnail} alt={game.title} className="w-20 h-20 inline-block mr-4" />
+//<ul className="space-y-4 grid grid-cols-2 gap-5"></ul>

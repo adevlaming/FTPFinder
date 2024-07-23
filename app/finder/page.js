@@ -16,8 +16,8 @@ export default function Page() {
   return (
     <main className="bg-black text-white min-h-screen flex flex-col items-center">
       <h1 className="text-3xl mt-10 mb-6 text-orange-400">Game Finder</h1>
-      <div className="flex flex-col items-center w-full max-w-2xl">
-        <div className="mb-4 w-full">
+      <div className="w-full flex flex-col items-center">
+        <div className="mb-4 w-full max-w-2xl flex flex-col items-center">
           <label className="block mb-2 text-orange-300">Select Category:</label>
           <select
             className="p-2 w-full bg-gray-800 text-white border border-gray-700 rounded"
@@ -35,6 +35,9 @@ export default function Page() {
             <option value="fighting">Fighting</option>
             <option value="social">Social</option>
             <option value="sports">Sports</option>
+            <option value="moba">MOBA</option>
+            <option value="mmo">MMO</option>
+            <option value="mmorpg">MMORPG</option>
           </select>
         </div>
         <GameList category={category} />
@@ -42,3 +45,6 @@ export default function Page() {
     </main>
   );
 }
+
+//<div className="flex flex-col items-center w-full max-w-2xl">
+//<div className="mb-4 w-full">
