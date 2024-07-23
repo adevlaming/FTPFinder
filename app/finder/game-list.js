@@ -68,5 +68,4 @@ export default function GameList({ category }) {
   );
 }
 
-//<img src={game.thumbnail} alt={game.title} className="w-20 h-20 inline-block mr-4" />
-//<ul className="space-y-4 grid grid-cols-2 gap-5"></ul>
+
