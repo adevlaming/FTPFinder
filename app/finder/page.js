@@ -119,6 +119,12 @@ export default function Page() {
           >
             #
           </button>
+          <button
+            onClick={() => setLetter('')}
+            className={`px-2 py-1 text-sm ${letter === '' ? 'bg-orange-500' : 'bg-gray-700'} text-white border border-gray-600 rounded hover:bg-orange-400`}
+          >
+            All
+          </button>
         </div>
 
         <GameList category={category} platform={platform} publisher={publisher} letter={letter} onGameClick={handleGameClick} />
