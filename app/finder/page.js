@@ -2,12 +2,14 @@
 
 import React, { useState } from 'react';
 import GameList from './game-list';
+import GamePage from './game-page';
 
 export default function Page() {
   const [category, setCategory] = useState('');
   const [platform, setPlatform] = useState('');
   const [publisher, setPublisher] = useState('');
   const [letter, setLetter] = useState('');
+  const [selectedGame, setSelectedGame] = useState(null);
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
@@ -26,7 +28,19 @@ export default function Page() {
   };
 
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  
+
+  const handleGameClick = (game) => {
+    setSelectedGame(game);
+  }
+
+  const closeGamePage = () => {
+    setSelectedGame(null);
+  }
+/*
+  const [isGamePageOpen, setGamePageOpen] = useState(false);
+  const openGamePage = () => setGamePageOpen(true);
+  const closeNewItem = () => setGamePageOpen(false);
+  */
   return (
     <main className="bg-black text-white min-h-screen flex flex-col items-center">
       <h1 className="text-3xl mt-10 mb-6 text-orange-400">Game Finder</h1>
@@ -107,8 +121,10 @@ export default function Page() {
           </button>
         </div>
 
-        <GameList category={category} platform={platform} publisher={publisher} letter={letter} />
+        <GameList category={category} platform={platform} publisher={publisher} letter={letter} onGameClick={handleGameClick} />
       </div>
+      {selectedGame && <GamePage game={selectedGame} onClose={closeGamePage} />}
     </main>
   );
 }
+

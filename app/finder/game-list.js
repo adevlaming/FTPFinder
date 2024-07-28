@@ -45,7 +45,7 @@ async function fetchGames(category, platform, publisher, letter) {
   }
 }
 
-export default function GameList({ category, platform, publisher, letter }) {
+export default function GameList({ category, platform, publisher, letter, onGameClick }) {
   const [games, setGames] = useState([]);
   const [error, setError] = useState(null);
 
@@ -62,25 +62,64 @@ export default function GameList({ category, platform, publisher, letter }) {
     loadGames();
   }, [loadGames]);
 
+  const filteredAndSortedGames = [...games]
+  .filter((game) => {
+    if (letter === '#') {
+      return !isNaN(game.title[0]);
+    }
+    return game.title.toUpperCase().startsWith(letter);
+  })
+  .sort((a, b) => {
+    let titleA = a.title.toUpperCase();
+    let titleB = b.title.toUpperCase();
+    if (titleA < titleB) {
+      return -1;
+    }
+    if (titleA > titleB) {
+      return 1;
+    }
+    return 0;
+  })
+
+  const getHeaderMessage = () => {
+    let message = 'Game List';
+    if (category) {
+      message += ` for ${category}`;
+    }
+    if (platform) {
+      message += ` on ${platform}`;
+    }
+    if (publisher) {
+      message += ` by ${publisher}`;
+    }
+    if (letter) {
+      message += ` starting with ${letter}`;
+    }
+    return message;
+  };
+
   return (
     <div className="mx-10 my-5 w-full max-w-6xl">
-      <h2 className="text-2xl text-orange-300 mb-4">Game List for {category} on {platform} by {publisher} starting with {letter}</h2>
+      <h2 className="text-2xl text-orange-300 mb-4">{getHeaderMessage()}</h2>
       {error ? (
         <p className="text-red-500">{error}</p>
       ) : (
-        <ul className="grid grid-cols-4 gap-5">
-          {games.length > 0 ? (
-            games.map((game) => (
-              <li key={game.id} className="p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex flex-col items-center">
-                <img src={game.thumbnail} alt={game.title} className="w-full h-auto" />
-                <div>
-                  <p className="font-bold">{game.title}</p>
-                  <p>{game.short_description}</p>
-                  <p>Platform: {game.platform}</p>
-                </div>
+        <ul className="grid grid-cols-5 gap-5">
+          {filteredAndSortedGames.length > 0 ? (
+            filteredAndSortedGames.map((game) => (
+              <li 
+                key={game.id} 
+                className="p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex flex-col items-center"
+                onClick={() => onGameClick(game)}
+                >
+                  <img src={game.thumbnail} alt={game.title} className="w-full h-auto" />
+                  <div>
+                    <p className="font-bold">{game.title}</p>
+                    <p>Genre: {game.genre}</p>
+                    <p>Platform: {game.platform}</p>
+                  </div>
               </li>
-            ))
-          ) : (
+            ))) : (
             <p className="text-orange-300">No games available</p>
           )}
         </ul>
