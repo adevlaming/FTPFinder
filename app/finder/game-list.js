@@ -10,7 +10,6 @@ async function fetchGames(category, platform, publisher, letter) {
   let params = new URLSearchParams();
   if (category) params.append('category', category);
   if (platform) params.append('platform', platform);
-  if (publisher) params.append('publisher', publisher);
   if (letter) {
     if (letter === '#') {
       params.append('title', ''); // Filter games with numbers in title
@@ -88,9 +87,6 @@ export default function GameList({ category, platform, publisher, letter, onGame
     }
     if (platform) {
       message += ` on ${platform}`;
-    }
-    if (publisher) {
-      message += ` by ${publisher}`;
     }
     if (letter) {
       message += ` starting with ${letter}`;

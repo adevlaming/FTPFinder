@@ -78,27 +78,12 @@ export default function Page() {
               onChange={handlePlatformChange}
             >
               <option value="">Select Platform</option>
-              <option value="PC">PC</option>
-              <option value="PlayStation">PlayStation</option>
-              <option value="Xbox">Xbox</option>
-              <option value="Nintendo">Nintendo</option>
-              <option value="Mobile">Mobile</option>
-              <option value="Web">Web</option>
-            </select>
-          </div>
-
-          <div className="flex-1">
-            <label className="block mb-2 text-orange-300">Published By:</label>
-            <select
-              className="p-2 w-full bg-gray-800 text-white border border-gray-700 rounded"
-              value={publisher}
-              onChange={handlePublisherChange}
-            >
-              <option value="">Select Publisher</option>
-              <option value="Publisher1">Publisher1</option>
-              <option value="Publisher2">Publisher2</option>
-              <option value="Publisher3">Publisher3</option>
-              <option value="Publisher4">Publisher4</option>
+              <option value="pc">PC (Windows)</option>
+              <option value="playstation">PlayStation</option>
+              <option value="xbox">Xbox</option>
+              <option value="nintendo">Nintendo</option>
+              <option value="mobile">Mobile</option>
+              <option value="Web">Web Browser</option>
             </select>
           </div>
         </div>
