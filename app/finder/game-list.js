@@ -109,7 +109,7 @@ export default function GameList({ category, platform, publisher, letter, onGame
             filteredAndSortedGames.map((game) => (
               <li 
                 key={game.id} 
-                className="p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex flex-col items-center"
+                className="cursor-pointer p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex flex-col items-center"
                 onClick={() => onGameClick(game)}
                 >
                   <img src={game.thumbnail} alt={game.title} className="w-full h-auto" />
