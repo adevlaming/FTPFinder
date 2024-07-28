@@ -36,11 +36,7 @@ export default function Page() {
   const closeGamePage = () => {
     setSelectedGame(null);
   }
-/*
-  const [isGamePageOpen, setGamePageOpen] = useState(false);
-  const openGamePage = () => setGamePageOpen(true);
-  const closeNewItem = () => setGamePageOpen(false);
-  */
+
   return (
     <main className="bg-black text-white min-h-screen flex flex-col items-center">
       <h1 className="text-3xl mt-10 mb-6 text-orange-400">Game Finder</h1>
@@ -79,11 +75,7 @@ export default function Page() {
             >
               <option value="">Select Platform</option>
               <option value="pc">PC (Windows)</option>
-              <option value="playstation">PlayStation</option>
-              <option value="xbox">Xbox</option>
-              <option value="nintendo">Nintendo</option>
-              <option value="mobile">Mobile</option>
-              <option value="Web">Web Browser</option>
+              <option value="browser">Web Browser</option>
             </select>
           </div>
         </div>

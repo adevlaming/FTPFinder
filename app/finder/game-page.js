@@ -15,6 +15,7 @@ export default function GamePage({ game, onClose }){
         <p className="text-xl mb-4"><strong>Description:</strong> {game.short_description}</p>
         <p><strong>Platform:</strong> {game.platform}</p>
         <p><strong>Publisher:</strong> {game.publisher}</p>
+        <p><strong>Developer:</strong> {game.developer}</p>
         <p><strong>Genre:</strong> {game.genre}</p>
         <p><strong>Release Date:</strong> {game.release_date}</p>
         <p><strong>URL:</strong> <a href={game.game_url} target="_blank" rel="noopener noreferrer" className="text-orange-400 underline">{game.game_url}</a></p>
