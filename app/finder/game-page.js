@@ -10,11 +10,17 @@ export default function GamePage({ game, onClose }){
 
         <img src={game.thumbnail} alt={game.title} className="w-full h-auto mb-4" />
         
-        <h2 className="text-2xl mb-2">{game.title}</h2>
+        <h2 className="text-3xl mb-3">{game.title}</h2>
         
         <p className="text-xl mb-4"><strong>Description:</strong> {game.short_description}</p>
 
-        <p className="mb-4"><strong>Follow Link To Play:</strong> <a href={game.game_url} target="_blank" rel="noopener noreferrer" className="text-orange-500 underline">{game.game_url}</a></p>
+        <p className="mb-4">
+          <a href={game.game_url} target="_blank" rel="noopener noreferrer"> 
+            <button className="bg-orange-500 text-gray-900 py-2 px-4 rounded hover:bg-orange-600">
+              Play Here!  
+            </button>
+          </a>
+        </p>
 
         <p><strong>Platform:</strong> {game.platform}</p>
         <p><strong>Publisher:</strong> {game.publisher}</p>

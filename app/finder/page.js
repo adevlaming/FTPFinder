@@ -55,7 +55,7 @@ export default function Page() {
               <option value="strategy">Strategy</option>
               <option value="fantasy">Fantasy</option>
               <option value="sci-fi">Sci-Fi</option>
-              <option value="card-games">Card Games</option>
+              <option value="card">Card Games</option>
               <option value="racing">Racing</option>
               <option value="fighting">Fighting</option>
               <option value="social">Social</option>
