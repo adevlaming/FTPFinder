@@ -12,8 +12,6 @@ export default function GamePage({ game, onClose }){
         
         <h2 className="text-3xl mb-3">{game.title}</h2>
         
-        <p className="text-xl mb-4"><strong>Description:</strong> {game.short_description}</p>
-
         <p className="mb-4">
           <a href={game.game_url} target="_blank" rel="noopener noreferrer"> 
             <button className="bg-orange-500 text-gray-900 text-xl py-2 px-4 rounded hover:bg-orange-600">
@@ -21,6 +19,8 @@ export default function GamePage({ game, onClose }){
             </button>
           </a>
         </p>
+
+        <p className="text-xl mb-4"><strong>Description:</strong> {game.short_description}</p>
 
         <p><strong>Platform:</strong> {game.platform}</p>
         <p><strong>Publisher:</strong> {game.publisher}</p>
