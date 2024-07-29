@@ -16,8 +16,8 @@ export default function GamePage({ game, onClose }){
 
         <p className="mb-4">
           <a href={game.game_url} target="_blank" rel="noopener noreferrer"> 
-            <button className="bg-orange-500 text-gray-900 py-2 px-4 rounded hover:bg-orange-600">
-              Play Here!  
+            <button className="bg-orange-500 text-gray-900 text-xl py-2 px-4 rounded hover:bg-orange-600">
+              <strong>Play Here!</strong>  
             </button>
           </a>
         </p>
