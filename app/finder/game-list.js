@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useUserAuth } from "../_utils/auth-context";
 
 async function fetchGames(category, platform, publisher, letter) {
   const apiKey = '9ff765ef16msh514a67d244a1e0ep179ef9jsn0c205c546ea7';
@@ -47,6 +48,8 @@ async function fetchGames(category, platform, publisher, letter) {
 export default function GameList({ category, platform, publisher, letter, onGameClick }) {
   const [games, setGames] = useState([]);
   const [error, setError] = useState(null);
+
+  const {user} = useUserAuth();
 
   const loadGames = useCallback(async () => {
     try {
@@ -103,19 +106,22 @@ export default function GameList({ category, platform, publisher, letter, onGame
         <ul className="grid grid-cols-5 gap-5">
           {filteredAndSortedGames.length > 0 ? (
             filteredAndSortedGames.map((game) => (
-              <li 
-                key={game.id} 
-                className="cursor-pointer p-2 border border-gray-600 rounded bg-gray-700 text-orange-200 flex flex-col items-center"
-                onClick={() => onGameClick(game)}
-                >
-                  <img src={game.thumbnail} alt={game.title} className="w-full h-auto" />
-                  <div>
-                    <p className="font-bold">{game.title}</p>
-                    <p>Genre: {game.genre}</p>
-                    <p>Platform: {game.platform}</p>
-                  </div>
+              <li
+                key={game.id}
+                className={`cursor-pointer p-2 border border-gray-600 rounded bg-gray-700 text-orange-200 flex flex-col items-center ${
+                  user ? '' : 'pointer-events-none'
+                }`}
+                onClick={() => user && onGameClick(game)}
+              >
+                <img src={game.thumbnail} alt={game.title} className="w-full h-auto" />
+                <div>
+                  <p className="font-bold">{game.title}</p>
+                  <p>Genre: {game.genre}</p>
+                  <p>Platform: {game.platform}</p>
+                </div>
               </li>
-            ))) : (
+            ))
+          ) : (
             <p className="text-orange-300">No games available</p>
           )}
         </ul>
