@@ -117,11 +117,14 @@ export default function Page() {
 
         <GameList category={category} platform={platform} publisher={publisher} letter={letter} onGameClick={handleGameClick} />
       </div>
+      
       {selectedGame && <GamePage game={selectedGame} onClose={closeGamePage} />}
-      <div>
-      <Link href="/" className="font-mono text-orange-400 hover:underline">Click here to return to the sign in/log out page to log out</Link>
+      
+      <div className="mt-11">
+        <Link href="/" className="font-mono text-orange-400 hover:underline">Click here to return to the sign in/log out page to log out</Link>
       </div>
       </div>
+
         ) : (
 
       <div className="flex flex-col items-center justify-center w-full">

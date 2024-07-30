@@ -122,7 +122,7 @@ export default function GameList({ category, platform, publisher, letter, onGame
               </li>
             ))
           ) : (
-            <p className="text-orange-300">No games available</p>
+            <p className="font-mono text-xl text-orange-400">No games available</p>
           )}
         </ul>
       )}
