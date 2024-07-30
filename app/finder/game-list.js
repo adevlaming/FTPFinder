@@ -96,7 +96,7 @@ export default function GameList({ category, platform, publisher, letter, onGame
 
   return (
     <div className="mx-10 my-5 w-full max-w-6xl">
-      <h2 className="text-2xl text-orange-300 mb-4">{getHeaderMessage()}</h2>
+      <h2 className="font-mono text-2xl text-orange-400 mb-2">{getHeaderMessage()}</h2>
       {error ? (
         <p className="text-red-500">{error}</p>
       ) : (
@@ -105,7 +105,7 @@ export default function GameList({ category, platform, publisher, letter, onGame
             filteredAndSortedGames.map((game) => (
               <li 
                 key={game.id} 
-                className="cursor-pointer p-2 border border-gray-700 rounded bg-gray-800 text-orange-200 flex flex-col items-center"
+                className="cursor-pointer p-2 border border-gray-600 rounded bg-gray-700 text-orange-200 flex flex-col items-center"
                 onClick={() => onGameClick(game)}
                 >
                   <img src={game.thumbnail} alt={game.title} className="w-full h-auto" />
