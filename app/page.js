@@ -33,9 +33,8 @@ export default function SignInPage(){
         <main className="flex flex-col items-center justify-center min-h-screen bg-black text-center text-orange-500">  
             <header className="text-center mb-5 text-orange-500">
                 <h1 className="text-6xl font-mono mb-10">Free-To-Play Finder</h1>
-                <p className="text-xl font-mono mb-5">Please Sign In To View All Of The Sites Features!</p>
                 <p className="text-xl font-mono">
-                    <Link href="./finder" className="text-xl hover:underline"> Click Here To View Game List</Link>
+                    <Link href="./finder" className="text-2xl hover:underline"> Click Here To View Game List</Link>
                 </p>
             </header>
             {user ? (
@@ -49,6 +48,7 @@ export default function SignInPage(){
             ) : (
                 //user IS NOT logged in
                 <div className="text-orange-500">
+                    <p className="text-xl font-mono mb-5">Please Sign In To View All Of The Sites Features!</p>
                     <button onClick={() => handleSignIn(gitHubSignIn)} className="text-2xl font-mono m-2 hover:underline">Sign In</button>
                 </div>
             ) }
