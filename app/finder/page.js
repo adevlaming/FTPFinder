@@ -45,7 +45,7 @@ export default function Page() {
 
   return (
     <main className="bg-black text-white min-h-screen flex flex-col items-center">
-      <h1 className="text-5xl font-mono font-bold mt-10 mb-6 text-orange-400">FTP Game Finder</h1>
+      <h1 className="text-5xl font-mono font-bold mt-10 mb-6 text-orange-400">Free-To-Play Finder</h1>
       <h2 className="text-2xl font-mono mb-3 text-orange-400">Your one stop to find free to play games!</h2>
       {user ? (
       <div className="flex flex-col items-center justify-center w-full">
@@ -119,7 +119,7 @@ export default function Page() {
       </div>
       {selectedGame && <GamePage game={selectedGame} onClose={closeGamePage} />}
       <div>
-      <Link href="/" className="text-orange-400 hover:underline">Click here to return to the sign in/log out page to log out</Link>
+      <Link href="/" className="font-mono text-orange-400 hover:underline">Click here to return to the sign in/log out page to log out</Link>
       </div>
       </div>
         ) : (

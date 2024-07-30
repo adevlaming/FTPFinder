@@ -5,7 +5,7 @@ export default function GamePage({ game, onClose }){
 
     return(
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75" onClick={onClose}>
-      <div className="bg-gray-600 p-6 rounded shadow-lg max-w-lg w-full text-orange-300" onClick={(e) => e.stopPropagation()}>
+      <div className="bg-gray-700 p-6 rounded shadow-lg max-w-lg w-full text-orange-300" onClick={(e) => e.stopPropagation()}>
         <button className="text-orange-300 mb-4" onClick={onClose}>Close</button>
 
         <img src={game.thumbnail} alt={game.title} className="w-full h-auto mb-4" />
