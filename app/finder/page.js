@@ -121,7 +121,7 @@ export default function Page() {
       {selectedGame && <GamePage game={selectedGame} onClose={closeGamePage} />}
       
       <div className="mt-11">
-        <Link href="/" className="font-mono text-orange-400 hover:underline">Click here to return to the sign in/log out page to log out</Link>
+        <Link href="/" className="text-lg font-mono text-orange-400 hover:underline">Click here to return to the sign in/sign out page to log out</Link>
       </div>
       </div>
 
@@ -130,7 +130,7 @@ export default function Page() {
       <div className="flex flex-col items-center justify-center w-full">
         
         <p className="text-2xl font-mono mb-4 text-orange-400 text-center">
-          To view detailed game information and how to play please <Link href="/" className="text-orange-400 hover:underline">Sign In</Link>
+          To view detailed game information and how to play please <Link href="/" className="text-orange-700 hover:underline">Sign In</Link>
         </p>
         
         <div className="w-full flex flex-col items-center">
